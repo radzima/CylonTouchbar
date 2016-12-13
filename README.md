@@ -1,7 +1,7 @@
-# Cylon TouchBar 
+# Cylon Touchbar
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?style=flat-square)](https://paypal.me/radzima) [![Twitter Follow](https://img.shields.io/twitter/follow/radzima.svg?style=social&label=@radzima&style=flat-square)](https://twitter.com/radzima)
 
-### Cylon LED eyes animation for your new MacBook Pro TouchBar based on the [Knight Touchbar 2000](https://github.com/AkdM/KnightTouchBar2000) project by Anthony Da Mota.
+### Cylon LED eyes animation for your new MacBook Pro Touchbar based on the [Knight Touchbar 2000](https://github.com/AkdM/KnightTouchBar2000) project by Anthony Da Mota.
 
 ## Cylon Touchbar on Youtube
 [![Cylon Touchbar on Youtube](https://i.ytimg.com/vi/IM8PT6nUM7o/hqdefault.jpg?custom=true&w=336&h=188&stc=true&jpg444=true&jpgq=90&sp=68&sigh=Z4EZl6bQuZ_Q7L4Q3HtkQgwQFWQ "Cylon Touchbar on Youtube")](https://www.youtube.com/watch?v=IM8PT6nUM7o)
@@ -31,7 +31,7 @@ or just  [download the latest release of the app here][latest-release] and open 
 
 ## It's Free?!?
 
-You're wondering how I can survive making such an amazingly useless app and not charing for it, aren't you? You can fix that... [donate here!][paypal]
+You're wondering how I can survive making such an amazingly useless app and not charging for it, aren't you? You can fix that... [donate here!][paypal]
 
 ## Follow me!
 

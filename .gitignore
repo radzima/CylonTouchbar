@@ -67,4 +67,6 @@ fastlane/test_output
 *.psd
 *.mp4
 images/AppIcon-assets
-
+*.pkf
+*.app
+*.cmproj
