@@ -17,7 +17,7 @@ class ViewController: NSViewController {
         
         self.view.wantsLayer = true
         
-        cylon.image = NSImage(named: "cylon.gif")
+        cylon.image = NSImage(named: NSImage.Name(rawValue: "cylon.gif"))
         cylon.frame = CGRect(x: 0, y: 0, width: 265, height: 265)
         cylon.animates = true
     }

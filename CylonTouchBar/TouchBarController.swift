@@ -8,20 +8,20 @@
 
 import Cocoa
 
-fileprivate extension NSTouchBarCustomizationIdentifier {
+fileprivate extension NSTouchBar.CustomizationIdentifier {
     
-    static let cylonTouchBar = NSTouchBarCustomizationIdentifier("io.ronintech.CylonTouchBar")
+    static let cylonTouchBar = NSTouchBar.CustomizationIdentifier("io.ronintech.CylonTouchBar")
 }
 
-fileprivate extension NSTouchBarItemIdentifier {
-    static let cylon = NSTouchBarItemIdentifier("cylon")
+fileprivate extension NSTouchBarItem.Identifier {
+    static let cylon = NSTouchBarItem.Identifier("cylon")
 }
 
 @available(OSX 10.12.1, *)
 class TouchBarController: NSWindowController, NSTouchBarDelegate, CAAnimationDelegate {
     
     let cylonView = NSView()
-    let sound = NSSound(named: "BSG_Cylon_Slow")
+    let sound = NSSound(named: NSSound.Name(rawValue: "BSG_Cylon_Slow"))
     let loops: Bool = true
 
     override func windowDidLoad() {
@@ -29,11 +29,11 @@ class TouchBarController: NSWindowController, NSTouchBarDelegate, CAAnimationDel
         handleMusic()
     }
     
-    @available(OSX 10.12.1, *)
+    @available(OSX 10.12.2, *)
     override func makeTouchBar() -> NSTouchBar? {
         let touchBar = NSTouchBar()
         touchBar.delegate = self
-        touchBar.customizationIdentifier = NSTouchBarCustomizationIdentifier.cylonTouchBar
+        touchBar.customizationIdentifier = NSTouchBar.CustomizationIdentifier.cylonTouchBar
         touchBar.defaultItemIdentifiers = [.cylon]
         touchBar.customizationAllowedItemIdentifiers = [.cylon]
         
@@ -41,13 +41,13 @@ class TouchBarController: NSWindowController, NSTouchBarDelegate, CAAnimationDel
         
     }
     
-    @available(OSX 10.12.1, *)
-    func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItemIdentifier) -> NSTouchBarItem? {
+    @available(OSX 10.12.2, *)
+    func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         
         let wholeTouchBar = NSCustomTouchBarItem(identifier: identifier)
         
         switch identifier {
-        case NSTouchBarItemIdentifier.cylon:
+        case NSTouchBarItem.Identifier.cylon:
             // Need this to be 0:07.450 seconds long
             self.cylonView.wantsLayer = true
             let theLEDs = CAShapeLayer()
