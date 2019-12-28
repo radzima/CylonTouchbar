@@ -8,13 +8,15 @@
 
 import Cocoa
 
-fileprivate extension NSTouchBarCustomizationIdentifier {
+@available(OSX 10.12.2, *)
+fileprivate extension NSTouchBar.CustomizationIdentifier {
     
-    static let cylonTouchBar = NSTouchBarCustomizationIdentifier("io.ronintech.CylonTouchBar")
+    static let cylonTouchBar = "io.ronintech.CylonTouchBar"
 }
 
-fileprivate extension NSTouchBarItemIdentifier {
-    static let cylon = NSTouchBarItemIdentifier("cylon")
+@available(OSX 10.12.2, *)
+fileprivate extension NSTouchBarItem.Identifier {
+    static let cylon = NSTouchBarItem.Identifier("cylon")
 }
 
 @available(OSX 10.12.1, *)
@@ -29,11 +31,11 @@ class TouchBarController: NSWindowController, NSTouchBarDelegate, CAAnimationDel
         handleMusic()
     }
     
-    @available(OSX 10.12.1, *)
+    @available(OSX 10.12.2, *)
     override func makeTouchBar() -> NSTouchBar? {
         let touchBar = NSTouchBar()
         touchBar.delegate = self
-        touchBar.customizationIdentifier = NSTouchBarCustomizationIdentifier.cylonTouchBar
+        touchBar.customizationIdentifier = NSTouchBar.CustomizationIdentifier.cylonTouchBar
         touchBar.defaultItemIdentifiers = [.cylon]
         touchBar.customizationAllowedItemIdentifiers = [.cylon]
         
@@ -41,13 +43,13 @@ class TouchBarController: NSWindowController, NSTouchBarDelegate, CAAnimationDel
         
     }
     
-    @available(OSX 10.12.1, *)
-    func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItemIdentifier) -> NSTouchBarItem? {
+    @available(OSX 10.12.2, *)
+    func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         
         let wholeTouchBar = NSCustomTouchBarItem(identifier: identifier)
         
         switch identifier {
-        case NSTouchBarItemIdentifier.cylon:
+        case NSTouchBarItem.Identifier.cylon:
             // Need this to be 0:07.450 seconds long
             self.cylonView.wantsLayer = true
             let theLEDs = CAShapeLayer()
@@ -137,13 +139,13 @@ extension NSBezierPath {
         for i in 0 ..< self.elementCount {
             let type = self.element(at: i, associatedPoints: &points)
             switch type {
-            case .moveToBezierPathElement:
+            case .moveTo:
                 path.move(to: points[0])
-            case .lineToBezierPathElement:
+            case .lineTo:
                 path.addLine(to: points[0])
-            case .curveToBezierPathElement:
+            case .curveTo:
                 path.addCurve(to: points[2], control1: points[0], control2: points[1])
-            case .closePathBezierPathElement:
+            case .closePath:
                 path.closeSubpath()
             }
         }
