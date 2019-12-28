@@ -8,11 +8,13 @@
 
 import Cocoa
 
+@available(OSX 10.12.2, *)
 fileprivate extension NSTouchBar.CustomizationIdentifier {
     
-    static let cylonTouchBar = NSTouchBar.CustomizationIdentifier("io.ronintech.CylonTouchBar")
+    static let cylonTouchBar = "io.ronintech.CylonTouchBar"
 }
 
+@available(OSX 10.12.2, *)
 fileprivate extension NSTouchBarItem.Identifier {
     static let cylon = NSTouchBarItem.Identifier("cylon")
 }
@@ -21,7 +23,7 @@ fileprivate extension NSTouchBarItem.Identifier {
 class TouchBarController: NSWindowController, NSTouchBarDelegate, CAAnimationDelegate {
     
     let cylonView = NSView()
-    let sound = NSSound(named: NSSound.Name(rawValue: "BSG_Cylon_Slow"))
+    let sound = NSSound(named: "BSG_Cylon_Slow")
     let loops: Bool = true
 
     override func windowDidLoad() {
@@ -137,13 +139,13 @@ extension NSBezierPath {
         for i in 0 ..< self.elementCount {
             let type = self.element(at: i, associatedPoints: &points)
             switch type {
-            case .moveToBezierPathElement:
+            case .moveTo:
                 path.move(to: points[0])
-            case .lineToBezierPathElement:
+            case .lineTo:
                 path.addLine(to: points[0])
-            case .curveToBezierPathElement:
+            case .curveTo:
                 path.addCurve(to: points[2], control1: points[0], control2: points[1])
-            case .closePathBezierPathElement:
+            case .closePath:
                 path.closeSubpath()
             }
         }
